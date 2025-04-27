@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import TourCard from './components/TourCard';
 
 function App() {
   const [tours, setTours] = useState([]);
@@ -24,17 +25,29 @@ function App() {
     fetchTours();
   }, []);
 
+  const removeTour = (id) => {
+    setTours(tours.filter((tour) => tour.id !== id));
+  };
+
   return (
     <>
       <h1>Our Tours</h1>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {!loading && !error && (
-        <ul>
+        <div className="tours-container">
           {tours.map((tour) => (
-            <li key={tour.id}>{tour.name}</li>
+            <TourCard
+              key={tour.id}
+              id={tour.id}
+              name={tour.name}
+              info={tour.info}
+              image={tour.image}
+              price={tour.price}
+              onRemove={removeTour}
+            />
           ))}
-        </ul>
+        </div>
       )}
     </>
   );
