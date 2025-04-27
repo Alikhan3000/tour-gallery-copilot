@@ -1,11 +1,11 @@
 :root {
-  font-family: 'Poppins', sans-serif; /* Modern and clean font */
-  line-height: 1.6;
+  font-family: 'Roboto Mono', monospace; /* Techy mono font */
+  line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.9); /* Softer text color */
-  background-color: #1e1e2f; /* Darker background for better contrast */
+  color-scheme: light;
+  color: #1a1a1a; /* Dark gray text for readability */
+  background-color: #f9f9f9; /* Very light gray background */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,64 +13,70 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 600; /* Slightly bolder links */
-  color: #4a90e2; /* Vibrant blue for links */
-  text-decoration: none; /* Clean link appearance */
-}
-a:hover {
-  color: #357ab8; /* Darker blue on hover */
-}
-
 body {
   margin: 0;
+  background-color: #ffffff; /* Bright white background */
+  font-family: 'Roboto Mono', monospace;
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: center; /* Center content horizontally */
-  justify-content: center; /* Center content vertically */
-  min-width: 320px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   min-height: 100vh;
-  background: linear-gradient(135deg, #1e1e2f, #3a3a5f); /* Gradient background */
 }
 
 h1 {
-  font-size: 3.5em; /* Larger heading */
-  line-height: 1.2;
-  color: #ffffff; /* White text for headings */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle text shadow */
+  font-size: 3.5rem; /* Larger header */
+  font-weight: bold;
+  text-align: center; /* Centered title */
+  margin: 1rem 0;
 }
 
-button {
-  border-radius: 12px; /* More rounded corners */
-  border: 1px solid transparent;
-  padding: 0.8em 1.5em; /* Larger padding for better click area */
-  font-size: 1.1em; /* Slightly larger text */
-  font-weight: 600; /* Bolder button text */
-  font-family: inherit;
-  background-color: #4a90e2; /* Vibrant blue button */
+.tour-card {
+  max-width: 800px; /* Limit card width */
+  margin: 2rem auto; /* Center horizontally and add spacing */
+  padding: 2rem; /* Add padding */
+  background-color: #ffffff; /* White card background */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft drop shadow */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Space between elements */
+}
+
+.tour-card img {
+  width: 100%; /* Responsive width */
+  height: 400px; /* Fixed height */
+  object-fit: cover; /* Maintain aspect ratio */
+  border-radius: 12px; /* Rounded corners */
+}
+
+.tour-card button {
+  border-radius: 8px;
+  border: none;
+  padding: 1rem 2rem; /* Larger buttons */
+  font-size: 1.2rem;
+  font-family: 'Roboto Mono', monospace;
+  background-color: #0078ff; /* Bright blue */
   color: #ffffff; /* White text */
   cursor: pointer;
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-}
-button:hover {
-  background-color: #357ab8; /* Darker blue on hover */
-  transform: scale(1.05); /* Slightly enlarge button on hover */
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all 0.3s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #f5f5f5; /* Light background for light mode */
+.tour-card button:hover {
+  background-color: #005fcc; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight scale effect */
+}
+
+@media (max-width: 768px) {
+  .tour-card {
+    padding: 1rem; /* Adjust padding for smaller screens */
   }
-  a:hover {
-    color: #2a5d9e; /* Adjusted hover color for light mode */
+
+  .tour-card img {
+    height: 300px; /* Adjust image height */
   }
-  button {
-    background-color: #e0e0e0; /* Light button background */
-    color: #213547; /* Darker text for light mode */
+
+  h1 {
+    font-size: 2.5rem; /* Smaller header on mobile */
   }
 }

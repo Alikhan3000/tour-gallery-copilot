@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     const fetchTours = async () => {
       try {
-        const response = await fetch('https://course-api.com/react-tours-project'); // Fetch tour data from API
+        const response = await fetch('https://api.allorigins.win/raw?url=https://course-api.com/react-tours-project'); // Fetch tour data from API
         if (!response.ok) {
           throw new Error('Failed to fetch tours'); // Handle HTTP errors
         }
@@ -31,12 +31,15 @@ function App() {
 
   return (
     <>
-      <h1>Our Tours</h1>
+      <h1>Exodus Adventure Travels</h1>
       {loading && <p>Loading...</p>} {/* Show loading message if loading is true */}
       {error && <p>Error: {error}</p>} {/* Show error message if there is an error */}
-      {!loading && !error && (
+      {!loading && !error && tours.length === 0 && (
+        <button onClick={() => window.location.reload()} className="refresh-button">Refresh</button>
+      )} {/* Show Refresh button if no tours are left */}
+      {!loading && !error && tours.length > 0 && (
         <Gallery tours={tours} onRemove={removeTour} />
-      )} {/* Render Gallery if no loading or error */}
+      )} {/* Render Gallery if tours are available */}
     </>
   );
 }
